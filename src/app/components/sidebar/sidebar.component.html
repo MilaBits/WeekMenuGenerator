@@ -1,0 +1,19 @@
+<h2 class="title">{{meal.date | date}}</h2>
+<h2 class="participants">Participants</h2>
+<ul class="person-list">
+    <li class="person" *ngFor="let person of people">
+        <div class="person-top">
+            <img class="person-avatar" src="{{person.image}}" alt="">
+            <h4 class="person-name">{{person.name}}</h4>
+        </div>
+        <div class="person-bottom" *ngIf="person.foodRestrictions.length > 0">
+            <span class="person-limits">Limits</span>
+            <ul class="person-limit-list">
+                <li *ngFor="let restriction of person.foodRestrictions">
+                    <span>{{restriction.name}}</span> <span style="float:right">{{restriction.amount}}</span>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <button class="button">Add</button>
+</ul>

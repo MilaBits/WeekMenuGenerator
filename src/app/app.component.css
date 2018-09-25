@@ -1,0 +1,22 @@
+.topbar {
+    height: 20vh;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 80vh;
+  }
+  
+.main {
+    background:  rgb(168, 168, 168);
+    
+    flex: 1 1 100%;
+}
+
+.sidebar {
+    background: #42a5f5;
+
+    flex: 0 0.2 250px;
+}
