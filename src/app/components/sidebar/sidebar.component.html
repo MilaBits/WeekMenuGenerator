@@ -1,10 +1,11 @@
 <h2 class="title">{{meal.date | date}}</h2>
 <h2 class="participants">Participants</h2>
 <ul class="person-list">
-    <li class="person" *ngFor="let person of people">
+    <li class="person" *ngFor="let person of meal.participants">
         <div class="person-top">
             <img class="person-avatar" src="{{person.image}}" alt="">
             <h4 class="person-name">{{person.name}}</h4>
+            <button class="button right"><i class="material-icons md-18 right">create</i></button>
         </div>
         <div class="person-bottom" *ngIf="person.foodRestrictions.length > 0">
             <span class="person-limits">Limits</span>
@@ -15,5 +16,5 @@
             </ul>
         </div>
     </li>
-    <button class="button">Add</button>
+    <button class="button button-wide">Add Participant</button>
 </ul>

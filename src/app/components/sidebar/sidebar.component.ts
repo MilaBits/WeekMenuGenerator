@@ -4,6 +4,7 @@ import { Meal } from '../../Meal';
 import { Recipe } from '../../Recipe';
 import { User } from '../../User';
 import { PEOPLE } from '../../mockdata/mock-people';
+import { SharedDataService } from '../../services/shared-data/shared-data.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,9 +21,9 @@ export class SidebarComponent implements OnInit {
     recipe: new Recipe('Test', 'Yummy food')
   };
 
-  constructor() { }
+  constructor(private sharedData: SharedDataService) { }
 
   ngOnInit() {
+    this.sharedData.meal.subscribe(meal => this.meal = meal);
   }
-
 }

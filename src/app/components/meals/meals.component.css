@@ -20,3 +20,7 @@
 .meals li:hover {
     background: rgb(200,200,200);
 }
+
+.meals li .highlight {
+    background: #80d6ff;
+}

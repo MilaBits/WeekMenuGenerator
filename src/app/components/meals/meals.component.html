@@ -1,6 +1,7 @@
 <ul class="meals">
-  <li class="meal" *ngFor="let meal of meals">
+  <li class="meal" *ngFor="let meal of meals; let i = index" (click)="selectMeal(meal, i)" [class.active]="{highlight: i == selected}">
+    <span>{{sharedData.meal.date | date}}</span>
     <p>{{meal.date | date}}</p>
-    <p>{{meal.recipe.name}}</p> 
+    <p>{{meal.recipe.name}}</p>
   </li>
 </ul>
