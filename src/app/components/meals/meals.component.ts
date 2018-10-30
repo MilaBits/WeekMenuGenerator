@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MEALS } from '../../mockdata/mock-meals';
 import { SharedDataService } from '../../services/shared-data/shared-data.service';
 import { Meal } from '../../Meal';
+import { MealService } from '../../services/meal-service.service';
+import { MEALS } from '../../mockdata/mock-meals';
 
 @Component({
   selector: 'app-meals',
@@ -11,7 +12,7 @@ import { Meal } from '../../Meal';
 })
 export class MealsComponent implements OnInit {
 
-  meals = MEALS;
+  meals: Meal[];
 
   dataMeal: Meal;
 
@@ -19,7 +20,7 @@ export class MealsComponent implements OnInit {
 
   // TODO: Light up selected day somehow?
 
-  constructor(private sharedData: SharedDataService) { }
+  constructor(private sharedData: SharedDataService, private mealService: MealService) { }
 
   selectMeal(meal: Meal, index: number) {
     this.selected = index;
@@ -31,7 +32,11 @@ export class MealsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sharedData.meal.subscribe(meal => this.dataMeal = meal);
-  }
 
+    this.mealService.meals.subscribe(meals => this.meals = meals);
+
+    console.log('meals');
+    console.log(this.meals);    // empty array
+    console.log(this.meals[0]); // undefined
+  }
 }

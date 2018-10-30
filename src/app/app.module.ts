@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MealsComponent } from './components/meals/meals.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     RecipeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

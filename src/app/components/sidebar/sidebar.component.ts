@@ -5,6 +5,7 @@ import { Recipe } from '../../Recipe';
 import { User } from '../../User';
 import { PEOPLE } from '../../mockdata/mock-people';
 import { SharedDataService } from '../../services/shared-data/shared-data.service';
+import { Ingredient } from '../../Ingredient';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,7 +19,7 @@ export class SidebarComponent implements OnInit {
   meal: Meal = {
     date: new Date(),
     participants: Array<User>(),
-    recipe: new Recipe('Test', 'Yummy food')
+    recipe: new Recipe('Test', 'Yummy food', new Array<Ingredient>())
   };
 
   constructor(private sharedData: SharedDataService) { }

@@ -77,29 +77,3 @@ ul {
 .person-limit-list li:hover{
     background: rgba(0, 0, 0, 0.05);
 }
-
-.button {  
-    border:none;
-
-    text-align: center;
-
-    background-image: none;
-    background: white;
-}
-
-.button-wide {
-    width: 100%;
-    height: 30px;
-    
-    border-radius: 2px;
-    
-    font-size: 22;
-    font-weight: bold;
-    line-height: 30px;
-}
-
-.button:hover{
-    background: rgb(242.25, 242.25, 242.25);
-}
-
-.button:active { border-top-width: 0; }

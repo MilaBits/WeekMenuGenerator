@@ -1,3 +1,20 @@
-<p>
-  recipe works!
-</p>
+<div class="recipe-container">
+  <div class="recipe-sidebar">
+    <h2 class="title">{{meal.recipe.name}}</h2>
+    <h2 class="ingredients">Ingredients</h2>
+    <div class="recipe-list">
+      <div class="recipe">
+        <ul class="recipe-limit-list" *ngIf="meal.recipe.ingredients.length > 0">
+          <li class="ingredient" *ngFor="let ingredient of meal.recipe.ingredients">
+            <span>{{ingredient.name}}</span> <span style="float:right">{{ingredient.amount}}</span>
+          </li>
+        </ul>
+      </div>
+      <button class="button button-wide">Add Ingredient</button>
+    </div>
+  </div>
+</div>
+<div class="recipe-main">
+  <h2 class="title">Preparation</h2>
+  <p>{{meal.recipe.description}}</p>
+</div>
