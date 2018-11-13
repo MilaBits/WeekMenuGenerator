@@ -12,16 +12,15 @@ import { Ingredient } from '../../Ingredient';
 })
 export class RecipeComponent implements OnInit {
 
-  meal: Meal = {
-    date: new Date(),
-    participants: Array<User>(),
-    recipe: new Recipe('Test', 'Yummy food', new Array<Ingredient>())
-  };
+  meal: Meal;
+
+  // meal: Meal;
 
   constructor(private sharedData: SharedDataService) { }
 
   ngOnInit() {
-    this.sharedData.meal.subscribe(meal => this.meal = meal);
+    this.sharedData.selectedMeal.subscribe(meal => this.meal = meal);
+
   }
 
 }

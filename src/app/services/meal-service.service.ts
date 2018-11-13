@@ -17,6 +17,8 @@ export class MealService {
   meals = this.mealsSource;
 
   getMeals(): Observable<Meal[]> {
+
+    console.log('getting meals...');
     const mealsUrl = 'http://localhost:9050/meals';  // URL to web api
     return this.http.get<Meal[]>(mealsUrl)
       .pipe(

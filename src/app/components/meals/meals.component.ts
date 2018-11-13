@@ -12,7 +12,7 @@ import { MEALS } from '../../mockdata/mock-meals';
 })
 export class MealsComponent implements OnInit {
 
-  meals: Meal[];
+  meals$;
 
   dataMeal: Meal;
 
@@ -22,21 +22,15 @@ export class MealsComponent implements OnInit {
 
   constructor(private sharedData: SharedDataService, private mealService: MealService) { }
 
-  selectMeal(meal: Meal, index: number) {
-    this.selected = index;
-
+  selectMeal(meal: Meal) {
     this.sharedData.changeMeal(meal);
-
-    console.log(index);
-    // console.log(meal.date + '' + this.dataMeal.date);
   }
 
   ngOnInit() {
-
-    this.mealService.meals.subscribe(meals => this.meals = meals);
+    this.meals$ = this.mealService.getMeals();
 
     console.log('meals');
-    console.log(this.meals);    // empty array
-    console.log(this.meals[0]); // undefined
+    console.log(this.meals$);    // empty array
+    console.log(this.meals$[0]); // undefined
   }
 }

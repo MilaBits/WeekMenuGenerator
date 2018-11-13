@@ -1,7 +1,7 @@
-.topbar {
-    height: 20vh;
+/* .topbar {
+    height: 30vh;
 
-    z-index: 2;
+    z-index: 200;
 }
 
 .container {
@@ -16,17 +16,32 @@
     
     flex: 1 1 100%;
 
-    z-index: -2;
-}
+    height: 70vh;
 
-.sidebar {
-    background: #42a5f5;
+    z-index: 1;
+} */
 
-    flex: 0 0.2 250px;
+.flex-container {
+height: 100%;
 
-    -webkit-box-shadow: -2px 0px 5px 3px rgba(0,0,0,0.75);
-    -moz-box-shadow: -2px 0px 5px 3px rgba(0,0,0,0.75);
-    box-shadow: -2px 0px 5px 3px rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: stretch;
+    }
 
-    z-index: -1;
-}
+.flex-item:nth-child(1) {
+
+    flex-basis: 20%;
+    order: 0;
+    flex: 0.25 1 auto;
+    align-self: auto;
+    }
+
+.flex-item:nth-child(2) {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: stretch;
+    }

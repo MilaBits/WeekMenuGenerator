@@ -24,3 +24,7 @@
 .meals li .highlight {
     background: #80d6ff;
 }
+
+.selected {
+    background:#349ada;
+}

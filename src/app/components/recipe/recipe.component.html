@@ -1,20 +1,48 @@
-<div class="recipe-container">
-  <div class="recipe-sidebar">
-    <h2 class="title">{{meal.recipe.name}}</h2>
-    <h2 class="ingredients">Ingredients</h2>
-    <div class="recipe-list">
-      <div class="recipe">
-        <ul class="recipe-limit-list" *ngIf="meal.recipe.ingredients.length > 0">
-          <li class="ingredient" *ngFor="let ingredient of meal.recipe.ingredients">
-            <span>{{ingredient.name}}</span> <span style="float:right">{{ingredient.amount}}</span>
-          </li>
-        </ul>
-      </div>
-      <button class="button button-wide">Add Ingredient</button>
-    </div>
+<div class="flex-container">
+
+  <div class="flex-item sidebar">
+    <h2 class="title">{{meal.date | date}}</h2>
+    <h2 class="header">Participants</h2>
+
+    <ul class="list">
+      <li class="list-box" *ngFor="let person of meal.participants">
+        <div class="person-top">
+          <img class="person-avatar" src="{{person.image}}" alt="">
+          <span class="header-small">{{person.name}}</span>
+          <button class="button right"><i class="material-icons md-18 right">create</i></button>
+        </div>
+        <div class="person-bottom" *ngIf="person.foodRestrictions.length > 0">
+          <span class="header-small">Limits</span>
+          <ul class="limit-list">
+            <li *ngFor="let restriction of person.foodRestrictions" class="item">
+              <span>{{restriction.name}} </span><span> {{restriction.amount}}</span>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <button class="button button-wide">Add Participant</button>
+    </ul>
+
   </div>
-</div>
-<div class="recipe-main">
-  <h2 class="title">Preparation</h2>
-  <p>{{meal.recipe.description}}</p>
+
+  <div class="flex-item sidebar">
+    <h2 class="title">{{meal.recipe.name}}</h2>
+    <h2 class="header">Ingredients</h2>
+
+    <div class="list-box">
+      <ul class="limit-list" *ngIf="meal.recipe.ingredients.length > 0">
+        <li class="item" *ngFor="let ingredient of meal.recipe.ingredients">
+          <span>{{ingredient.name}} </span> <span> {{ingredient.amount}}</span>
+        </li>
+      </ul>
+    </div>
+    <button class="button button-wide">Add Ingredient</button>
+
+  </div>
+
+  <div class="flex-item">
+    <h2 class="title">Preparation</h2>
+    <p>{{meal.recipe.description}}</p>
+  </div>
+
 </div>

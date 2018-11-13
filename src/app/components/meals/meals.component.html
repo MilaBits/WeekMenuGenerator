@@ -1,7 +1,6 @@
 <ul class="meals">
-  <li class="meal" *ngFor="let meal of meals; let i = index" (click)="selectMeal(meal, i)" [class.active]="{highlight: i == selected}">
-    <span>{{sharedData.meal.date | date}}</span>
-    <p>{{meal.date | date}}</p>
+  <li class="meal" *ngFor="let meal of meals$ | async" (click)="selectMeal(meal)" [class.selected]="meal === this.sharedData.selectedMeal">
+    <h4>{{meal.date | date}}</h4>
     <p>{{meal.recipe.name}}</p>
   </li>
 </ul>
