@@ -10,7 +10,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Milly',
                 image: '../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Sugar', amount: 20 }, { name: 'Salt', amount: 10 }, { name: 'Milk', amount: null }]
+                foodRestrictions: [{ name: 'Sugar', amount: 20 , unit: 'g'}, { name: 'Salt', amount: 10 , unit: 'g'}, { name: 'Milk', amount: null , unit: 'g'}]
             },
             {
                 name: 'Guest',
@@ -20,7 +20,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Lea',
                 image: '../../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Salt', amount: 10 }]
+                foodRestrictions: [{ name: 'Salt', amount: 10 , unit: 'g'}]
             },
             {
                 name: 'Erika',
@@ -28,9 +28,9 @@ export const MEALS: Meal[] = [
                 foodRestrictions: Array<Ingredient>()
             }],
         recipe: new Recipe('Pasta', 'teeest', new Array<Ingredient>(
-            new Ingredient('Sugar', 10),
-            new Ingredient('Milk', 50),
-            new Ingredient('Milk', 50)))
+            new Ingredient('Sugar', 10, 'g'),
+            new Ingredient('Milk', 50, 'g'),
+            new Ingredient('Milk', 50, 'g')))
     },
     {
         date: new Date(2018, 8, 11),
@@ -38,7 +38,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Milly',
                 image: '../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Sugar', amount: 20 }, { name: 'Salt', amount: 10 }, { name: 'Milk', amount: null }]
+                foodRestrictions: [{ name: 'Sugar', amount: 20 , unit: 'g'}, { name: 'Salt', amount: 10 , unit: 'g'}, { name: 'Milk', amount: null , unit: 'g'}]
             },
             {
                 name: 'Guest',
@@ -46,9 +46,9 @@ export const MEALS: Meal[] = [
                 foodRestrictions: Array<Ingredient>()
             }],
         recipe: new Recipe('soup', 'teeest', new Array<Ingredient>(
-            new Ingredient('Sugar', 10),
-            new Ingredient('Milk', 50),
-            new Ingredient('Milk', 50)))
+            new Ingredient('Sugar', 10, 'g'),
+            new Ingredient('Milk', 50, 'g'),
+            new Ingredient('Milk', 50, 'g')))
     },
     {
         date: new Date(2018, 8, 12),
@@ -56,12 +56,12 @@ export const MEALS: Meal[] = [
             {
                 name: 'Milly',
                 image: '../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Sugar', amount: 20 }, { name: 'Salt', amount: 10 }, { name: 'Milk', amount: null }]
+                foodRestrictions: [{ name: 'Sugar', amount: 20 , unit: 'g'}, { name: 'Salt', amount: 10 , unit: 'g'}, { name: 'Milk', amount: null , unit: 'g'}]
             }],
         recipe: new Recipe('More Soup', 'teeest', new Array<Ingredient>(
-            new Ingredient('Sugar', 10),
-            new Ingredient('Milk', 50),
-            new Ingredient('Milk', 50)))
+            new Ingredient('Sugar', 10, 'g'),
+            new Ingredient('Milk', 50, 'g'),
+            new Ingredient('Milk', 50, 'g')))
     },
     {
         date: new Date(2018, 8, 13),
@@ -69,7 +69,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Lea',
                 image: '../../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Salt', amount: 10 }]
+                foodRestrictions: [{ name: 'Salt', amount: 10 , unit: 'g'}]
             },
             {
                 name: 'Erika',
@@ -77,9 +77,9 @@ export const MEALS: Meal[] = [
                 foodRestrictions: Array<Ingredient>()
             }],
         recipe: new Recipe('Steak thing', 'teeest', new Array<Ingredient>(
-            new Ingredient('Sugar', 10),
-            new Ingredient('Milk', 50),
-            new Ingredient('Milk', 50)))
+            new Ingredient('Sugar', 10, 'g'),
+            new Ingredient('Milk', 50, 'g'),
+            new Ingredient('Milk', 50, 'g')))
     },
     {
         date: new Date(2018, 8, 14),
@@ -92,12 +92,12 @@ export const MEALS: Meal[] = [
             {
                 name: 'Lea',
                 image: '../../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Salt', amount: 10 }]
+                foodRestrictions: [{ name: 'Salt', amount: 10 , unit: 'g'}]
             }],
         recipe: new Recipe('Pancakes', 'teeest', new Array<Ingredient>(
-            new Ingredient('Sugar', 10),
-            new Ingredient('Milk', 50),
-            new Ingredient('Milk', 50)))
+            new Ingredient('Sugar', 10, 'g'),
+            new Ingredient('Milk', 50, 'g'),
+            new Ingredient('Milk', 50, 'g')))
     },
     {
         date: new Date(2018, 8, 15),
@@ -105,12 +105,12 @@ export const MEALS: Meal[] = [
             {
                 name: 'Milly',
                 image: '../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Sugar', amount: 20 }, { name: 'Salt', amount: 10 }, { name: 'Milk', amount: null }]
+                foodRestrictions: [{ name: 'Sugar', amount: 20 , unit: 'g'}, { name: 'Salt', amount: 10 , unit: 'g'}, { name: 'Milk', amount: null , unit: 'g'}]
             },
             {
                 name: 'Lea',
                 image: '../../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Salt', amount: 10 }]
+                foodRestrictions: [{ name: 'Salt', amount: 10  , unit: 'g'}]
             },
             {
                 name: 'Erika',
@@ -118,9 +118,9 @@ export const MEALS: Meal[] = [
                 foodRestrictions: Array<Ingredient>()
             }],
         recipe: new Recipe('Dinnerfood', 'teeest', new Array<Ingredient>(
-            new Ingredient('Sugar', 10),
-            new Ingredient('Milk', 50),
-            new Ingredient('Milk', 50)))
+            new Ingredient('Sugar', 10, 'g'),
+            new Ingredient('Milk', 50, 'g'),
+            new Ingredient('Milk', 50, 'g')))
     },
     {
         date: new Date(2018, 8, 16),
@@ -128,7 +128,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Lea',
                 image: '../../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Salt', amount: 10 }]
+                foodRestrictions: [{ name: 'Salt', amount: 10 , unit: 'g'}]
             },
             {
                 name: 'Erika',
@@ -136,8 +136,8 @@ export const MEALS: Meal[] = [
                 foodRestrictions: Array<Ingredient>()
             }],
         recipe: new Recipe('Casserole', 'teeest', new Array<Ingredient>(
-            new Ingredient('Sugar', 10),
-            new Ingredient('Milk', 50),
-            new Ingredient('Milk', 50)))
+            new Ingredient('Sugar', 10 , 'g'),
+            new Ingredient('Milk', 50 , 'g'),
+            new Ingredient('Milk', 50 , 'g')))
     },
 ];

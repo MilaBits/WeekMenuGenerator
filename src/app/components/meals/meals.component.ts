@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { SharedDataService } from '../../services/shared-data/shared-data.service';
 import { Meal } from '../../Meal';
@@ -10,7 +10,7 @@ import { MEALS } from '../../mockdata/mock-meals';
   templateUrl: './meals.component.html',
   styleUrls: ['./meals.component.css']
 })
-export class MealsComponent implements OnInit {
+export class MealsComponent implements AfterViewInit {
 
   meals$;
 
@@ -26,7 +26,7 @@ export class MealsComponent implements OnInit {
     this.sharedData.changeMeal(meal);
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.meals$ = this.mealService.getMeals();
 
     console.log('meals');

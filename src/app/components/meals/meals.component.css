@@ -15,6 +15,7 @@
     background:#0077c1;
     display: inline-block;
     margin: 0px 1px 0px 1px;
+    border-bottom: 2px white solid;
 }
 
 .meals li:hover {

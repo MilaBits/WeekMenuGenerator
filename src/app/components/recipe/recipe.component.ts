@@ -20,7 +20,5 @@ export class RecipeComponent implements OnInit {
 
   ngOnInit() {
     this.sharedData.selectedMeal.subscribe(meal => this.meal = meal);
-
   }
-
 }

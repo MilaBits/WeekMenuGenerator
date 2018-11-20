@@ -21,6 +21,10 @@
     height: 80vh;
     } */
 
+.container {
+    height: 80vh;
+}
+
 .sidebar {
     background: #80d6ff;
     border-right: solid #0077c2 1px;
@@ -29,10 +33,8 @@
 .title {
     text-align: center;
     width: 100%;
-
     margin: 0;
     padding: 15px 0px 15px 0px;
-
     color: white;
     background: #0077c2;
 }
@@ -40,44 +42,46 @@
 .header {
     padding: 10px 0px 0px 0px;
     margin: 0;
-    
     text-align: center;
-    color:white;
-    }
+    color: white;
+}
 
 ul {
     list-style: none;
     padding: 0px;
     margin: 0px;
-}   
+}
 
 .list-box {
     padding: 5px 15px;
     margin: 15px 15px;
-
     border-radius: 2px;
-
     background: white;
 }
 
 .header-small {
     margin-top: 10px;
     font-weight: 600;
-
     line-height: 1.6;
 }
 
 .limit-list {
     padding: 5px;
     margin: 5px;
-
     border-radius: 2px;
 }
 
-.item{
+.item_grid-container {
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". .";
+    grid-column-gap: 10px;
+}
+
+.item {
     padding: 0px 10px 0px 10px;
     background: white;
-
     justify-content: space-between;
     display: flex;
 }
@@ -86,12 +90,12 @@ ul {
     display: inline;
 }
 
-.item:not(:first-child) {
+.item_grid-container:not(:first-child) {
     border-top: 1px solid lightgray;
     /* border-bottom: 1px solid lightgray; */
 }
 
-.ingredient:hover{
+.ingredient:hover {
     background: rgba(0, 0, 0, 0.05);
 }
 
@@ -102,25 +106,35 @@ ul {
     justify-content: flex-start;
     align-content: stretch;
     align-items: stretch;
-    }
+}
 
 .flex-item:nth-child(1) {
     order: 0;
     flex-basis: 25%;
     flex: .30 1 auto;
     align-self: stretch;
-    }
+}
 
 .flex-item:nth-child(2) {
-
     order: 0;
     flex-basis: 25%;
     flex: .30 1 auto;
     align-self: stretch;
-    }
+}
 
 .flex-item:nth-child(3) {
     order: 0;
     flex: 0 1 100%;
     align-self: stretch;
-    }
+}
+
+.preparation-box {
+    padding: 0px 20px;
+}
+
+.button_grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". .";
+}

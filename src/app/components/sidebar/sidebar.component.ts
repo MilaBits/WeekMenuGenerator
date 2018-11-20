@@ -25,6 +25,6 @@ export class SidebarComponent implements OnInit {
   constructor(private sharedData: SharedDataService) { }
 
   ngOnInit() {
-    this.sharedData.meal.subscribe(meal => this.meal = meal);
+    this.sharedData.selectedMeal.subscribe(meal => this.meal = meal);
   }
 }

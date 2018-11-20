@@ -76,9 +76,12 @@ app-root {
 }
 
 .button-wide {
-    width: 100%;
+    width: calc(100% - 30px);
     height: 30px;
-    
+
+    padding: 0 15px;
+    margin: 0px 15px 15px 15px;
+
     border-radius: 2px;
     
     font-size: 22;
@@ -91,3 +94,13 @@ app-root {
 }
 
 .button:active { border-top-width: 0; }
+
+.primary {
+    background-color: #0077c2;
+    /* color: white; */
+}
+
+.secondary {
+    background-color: #80d6ff;
+    /* color: white; */
+}
