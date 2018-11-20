@@ -10,7 +10,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Milly',
                 image: '../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Sugar', amount: 20 , unit: 'g'}, { name: 'Salt', amount: 10 , unit: 'g'}, { name: 'Milk', amount: null , unit: 'g'}]
+                foodRestrictions: [{id: 0, name: 'Sugar', amount: 20 , unit: 'g'}, {id: 0, name: 'Salt', amount: 10 , unit: 'g'}, {id: 0, name: 'Milk', amount: null , unit: 'g'}]
             },
             {
                 name: 'Guest',
@@ -20,7 +20,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Lea',
                 image: '../../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Salt', amount: 10 , unit: 'g'}]
+                foodRestrictions: [{id: 0, name: 'Salt', amount: 10 , unit: 'g'}]
             },
             {
                 name: 'Erika',
@@ -38,7 +38,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Milly',
                 image: '../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Sugar', amount: 20 , unit: 'g'}, { name: 'Salt', amount: 10 , unit: 'g'}, { name: 'Milk', amount: null , unit: 'g'}]
+                foodRestrictions: [{id: 0, name: 'Sugar', amount: 20 , unit: 'g'}, {id: 0, name: 'Salt', amount: 10 , unit: 'g'}, {id: 0, name: 'Milk', amount: null , unit: 'g'}]
             },
             {
                 name: 'Guest',
@@ -56,7 +56,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Milly',
                 image: '../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Sugar', amount: 20 , unit: 'g'}, { name: 'Salt', amount: 10 , unit: 'g'}, { name: 'Milk', amount: null , unit: 'g'}]
+                foodRestrictions: [{id: 0, name: 'Sugar', amount: 20 , unit: 'g'}, {id: 0, name: 'Salt', amount: 10 , unit: 'g'}, {id: 0, name: 'Milk', amount: null , unit: 'g'}]
             }],
         recipe: new Recipe('More Soup', 'teeest', new Array<Ingredient>(
             new Ingredient('Sugar', 10, 'g'),
@@ -69,7 +69,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Lea',
                 image: '../../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Salt', amount: 10 , unit: 'g'}]
+                foodRestrictions: [{id: 0, name: 'Salt', amount: 10 , unit: 'g'}]
             },
             {
                 name: 'Erika',
@@ -92,7 +92,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Lea',
                 image: '../../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Salt', amount: 10 , unit: 'g'}]
+                foodRestrictions: [{id: 0, name: 'Salt', amount: 10 , unit: 'g'}]
             }],
         recipe: new Recipe('Pancakes', 'teeest', new Array<Ingredient>(
             new Ingredient('Sugar', 10, 'g'),
@@ -105,12 +105,12 @@ export const MEALS: Meal[] = [
             {
                 name: 'Milly',
                 image: '../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Sugar', amount: 20 , unit: 'g'}, { name: 'Salt', amount: 10 , unit: 'g'}, { name: 'Milk', amount: null , unit: 'g'}]
+                foodRestrictions: [{id: 0, name: 'Sugar', amount: 20 , unit: 'g'}, {id: 0, name: 'Salt', amount: 10 , unit: 'g'}, {id: 0, name: 'Milk', amount: null , unit: 'g'}]
             },
             {
                 name: 'Lea',
                 image: '../../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Salt', amount: 10  , unit: 'g'}]
+                foodRestrictions: [{id: 0, name: 'Salt', amount: 10  , unit: 'g'}]
             },
             {
                 name: 'Erika',
@@ -128,7 +128,7 @@ export const MEALS: Meal[] = [
             {
                 name: 'Lea',
                 image: '../../../assets/blank-avatar.png',
-                foodRestrictions: [{ name: 'Salt', amount: 10 , unit: 'g'}]
+                foodRestrictions: [{id: 0, name: 'Salt', amount: 10 , unit: 'g'}]
             },
             {
                 name: 'Erika',
