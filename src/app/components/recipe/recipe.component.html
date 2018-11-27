@@ -2,20 +2,24 @@
     <h3>{{prefUser.name}}'s Preferences</h3>
     <p>Which ingredients do you not eat?</p>
     <form>
-        <ng-multiselect-dropdown
-        name="limit"
-        [placeholder]="'Select Dietary Limits'"
-        [data]="limits"
-        formControlName="limits"
-        [settings]="dropdownSettings"
-        (onSelect)="onItemSelect($event)">
-    </ng-multiselect-dropdown>
+    <ng-select name="prefs"
+      [items]="allPrefs$ | async"
+      [multiple]="true"
+      bindLabel="name"
+      [closeOnSelect]="false"
+      bindValue="id"
+      [(ngModel)]="selectedItems"
+      (add)="onAdd($event)">
+      <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+        <input id="item-{{index}}" name="itemName" type="checkbox" [ngModel]="item$.selected"/> {{item.name}}
+      </ng-template>
+    </ng-select>
     </form>
   </jw-modal>
 
-  <jw-modal id="add-participant">
+  <!-- <jw-modal id="add-participant">
       <h3>Add Participant</h3>
-      <form>
+      <form [formGroup]="">
           <ng-multiselect-dropdown
           name="limit"
           [placeholder]="'Select Dietary Limits'"
@@ -25,7 +29,7 @@
           (onSelect)="onItemSelect($event)">
       </ng-multiselect-dropdown>
       </form>
-    </jw-modal>
+    </jw-modal> -->
 
 <div class="container">
 

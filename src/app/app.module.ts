@@ -7,7 +7,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './directives/modal.component';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,11 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ModalComponent
   ],
   imports: [
-    NgMultiSelectDropDownModule.forRoot(),
+    NgSelectModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

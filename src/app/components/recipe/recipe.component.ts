@@ -7,6 +7,8 @@ import { Ingredient } from '../../Ingredient';
 import { ModalComponent } from 'src/app/directives/modal.component';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { IngredientService } from 'src/app/services/ingredient.service';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-recipe',
@@ -16,24 +18,28 @@ import { IngredientService } from 'src/app/services/ingredient.service';
 })
 export class RecipeComponent implements OnInit {
   // Diet Preference Modal
-  ShowFilter = false;
-  limitSelection = false;
-  limits: Array<Ingredient> = [];
-  selectedItems: Array<Ingredient> = [];
-  dropdownSettings: any = {};
+  allPrefs$: Observable<Ingredient[]>;
+  selectedPrefs: Ingredient[];
   prefUser: User = new User('temp', null, [{ id: 0, name: '', amount: 0, unit: '' }]);
 
   // Meal for the page to show
   meal: Meal;
 
-  constructor(private sharedData: SharedDataService, private modalService: ModalService, private ingredientService: IngredientService) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(private sharedData: SharedDataService, private modalService: ModalService, private ingredientService: IngredientService, private fb: FormBuilder) { }
 
   edit(user: User) {
+    // Open modal
     this.modalService.open('pref-modal');
-    this.prefUser = new User(user.name, user.image, user.foodRestrictions);
 
-    // load from user somehow
-    this.selectedItems = this.prefUser.foodRestrictions;
+    // Load currently chosen preferences
+    this.selectedPrefs = user.foodRestrictions;
+
+    console.log(this.selectedPrefs);
+  }
+
+  onAdd($event) {
+    console.log($event.name);
   }
 
   savePrefs() {
@@ -41,27 +47,11 @@ export class RecipeComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Get meal that is to be shown
     this.sharedData.selectedMeal.subscribe(meal => this.meal = meal);
 
-    this.ingredientService.getIngredients().subscribe(limits => this.limits = limits);
+    // Get all existing ingredients
+    this.allPrefs$ = this.ingredientService.getIngredients();
 
-    // Diet Form stuff
-    this.limits = [ // query to get all ingredients
-      { id: 1, name: 'test', amount: 0, unit: '' },
-      { id: 2, name: 'Mumbai', amount: 0, unit: '' },
-      { id: 3, name: 'Bangalore', amount: 0, unit: '' },
-      { id: 4, name: 'Pune', amount: 0, unit: '' },
-      { id: 5, name: 'Chennai', amount: 0, unit: '' },
-      { id: 6, name: 'Navsari', amount: 0, unit: '' }
-    ];
-    this.dropdownSettings = {
-      singleSelection: false,
-      idField: 'id',
-      textField: 'name',
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
-      allowSearchFilter: this.ShowFilter
-    };
   }
 }
