@@ -7,8 +7,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './directives/modal.component';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule, MatOptionModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ModalComponent
   ],
   imports: [
-    NgSelectModule,
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

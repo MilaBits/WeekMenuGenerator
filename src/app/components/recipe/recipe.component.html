@@ -2,18 +2,11 @@
     <h3>{{prefUser.name}}'s Preferences</h3>
     <p>Which ingredients do you not eat?</p>
     <form>
-    <ng-select name="prefs"
-      [items]="allPrefs$ | async"
-      [multiple]="true"
-      bindLabel="name"
-      [closeOnSelect]="false"
-      bindValue="id"
-      [(ngModel)]="selectedItems"
-      (add)="onAdd($event)">
-      <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-        <input id="item-{{index}}" name="itemName" type="checkbox" [ngModel]="item$.selected"/> {{item.name}}
-      </ng-template>
-    </ng-select>
+        <mat-form-field>
+            <mat-select placeholder="Ingredients" [formControl]="ingredientPrefs" >
+              <mat-option *ngFor="let ingredient of ingredientList" [value]="ingredient">{{ingredient.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
     </form>
   </jw-modal>
 

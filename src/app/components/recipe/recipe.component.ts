@@ -18,8 +18,8 @@ import { Observable } from 'rxjs';
 })
 export class RecipeComponent implements OnInit {
   // Diet Preference Modal
-  allPrefs$: Observable<Ingredient[]>;
-  selectedPrefs: Ingredient[];
+  ingredientList$: Observable<Ingredient[]>;
+  ingredientList: Ingredient[];
   prefUser: User = new User('temp', null, [{ id: 0, name: '', amount: 0, unit: '' }]);
 
   // Meal for the page to show
@@ -32,10 +32,14 @@ export class RecipeComponent implements OnInit {
     // Open modal
     this.modalService.open('pref-modal');
 
-    // Load currently chosen preferences
-    this.selectedPrefs = user.foodRestrictions;
 
-    console.log(this.selectedPrefs);
+    console.log('ingredients');
+    console.log(this.ingredientList);
+
+    // Load currently chosen preferences
+    // this.selectedPrefs = user.foodRestrictions;
+
+    // console.log(this.selectedPrefs);
   }
 
   onAdd($event) {
@@ -43,7 +47,7 @@ export class RecipeComponent implements OnInit {
   }
 
   savePrefs() {
-    // rest call to update user's preferences
+    // Rest call to update user's preferences
   }
 
   ngOnInit() {
@@ -51,7 +55,8 @@ export class RecipeComponent implements OnInit {
     this.sharedData.selectedMeal.subscribe(meal => this.meal = meal);
 
     // Get all existing ingredients
-    this.allPrefs$ = this.ingredientService.getIngredients();
+    this.ingredientList$ = this.ingredientService.getIngredients();
+    this.ingredientService.getIngredients().subscribe(ingredients => this.ingredientList = ingredients);
 
   }
 }
