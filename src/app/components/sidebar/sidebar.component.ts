@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit {
   people = PEOPLE;
 
   meal: Meal = {
+    id: -1,
     date: new Date(),
     participants: Array<User>(),
     recipe: new Recipe('Test', 'Yummy food', new Array<Ingredient>())

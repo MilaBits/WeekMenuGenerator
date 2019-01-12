@@ -10,7 +10,8 @@ import { ModalComponent } from './directives/modal.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSelectModule, MatOptionModule } from '@angular/material';
+import { MatOptionModule, MatCardModule, MatButtonModule, MatInputModule, MatButtonToggleModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,11 @@ import { MatSelectModule, MatOptionModule } from '@angular/material';
     FormsModule,
     BrowserAnimationsModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

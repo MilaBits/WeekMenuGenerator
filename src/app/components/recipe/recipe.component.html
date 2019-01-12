@@ -1,28 +1,42 @@
 <jw-modal id="pref-modal">
-    <h3>{{prefUser.name}}'s Preferences</h3>
-    <p>Which ingredients do you not eat?</p>
-    <form>
-        <mat-form-field>
-            <mat-select placeholder="Ingredients" [formControl]="ingredientPrefs" >
-              <mat-option *ngFor="let ingredient of ingredientList" [value]="ingredient">{{ingredient.name}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-    </form>
-  </jw-modal>
+  <h3>{{prefUser.name}}'s Preferences</h3>
+  <p>Which ingredients do you not eat?</p>
+  <form>
+    <mat-form-field>
+      <mat-select multiple placeholder="Ingredients" [(value)]="selectedIngredients">
+        <mat-option *ngFor="let ingredient of ingredientList" [(value)]="ingredient">{{ingredient.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button (click)="savePreferences()">Save</button>
+  </form>
+</jw-modal>
 
-  <!-- <jw-modal id="add-participant">
-      <h3>Add Participant</h3>
-      <form [formGroup]="">
-          <ng-multiselect-dropdown
-          name="limit"
-          [placeholder]="'Select Dietary Limits'"
-          [data]="limits"
-          formControlName="limits"
-          [settings]="dropdownSettings"
-          (onSelect)="onItemSelect($event)">
-      </ng-multiselect-dropdown>
-      </form>
-    </jw-modal> -->
+<jw-modal id="add-participant-modal">
+  <h3>Add Participant</h3>
+  <form>
+    <table>
+      <tr>
+        <mat-button-toggle-group [(value)]="selectedUserType">
+          <mat-button-toggle value="existing">Existing</mat-button-toggle>
+          <mat-button-toggle value="new">New</mat-button-toggle>
+        </mat-button-toggle-group>
+      </tr>
+      <tr>
+        <mat-form-field *ngIf="selectedUserType == 'existing'">
+          <mat-select placeholder="person" [(value)]="selectedUser">
+            <mat-option *ngFor="let person of personList" [(value)]="person">{{person.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf="selectedUserType == 'new'">
+          <input name="name" [formControl]="nameFormControl" matInput value="{{userNameInput}}" placeholder="Name">
+        </mat-form-field>
+      </tr>
+      <tr>
+        <button mat-button (click)="addParticipant()">Save</button>
+      </tr>
+    </table>
+  </form>
+</jw-modal>
 
 <div class="container">
 
@@ -33,8 +47,8 @@
     <ul class="list">
       <li class="list-box" *ngFor="let person of meal.participants">
         <div class="person-top">
-          <img class="person-avatar" src="{{person.image}}" alt="">
           <span class="header-small">{{person.name}}</span>
+          <button class="button right" (click)="updateUsers(person)"><i class="material-icons md-18 right">delete</i></button>
           <button class="button right" (click)="edit(person)"><i class="material-icons md-18 right">create</i></button>
         </div>
         <div class="person-bottom" *ngIf="person.foodRestrictions.length > 0">
@@ -46,7 +60,7 @@
           </ul>
         </div>
       </li>
-      <button class="button button-wide">Add Participant</button>
+      <button class="button button-wide" (click)="addPersonModal(person)">Add Participant</button>
     </ul>
 
   </div>

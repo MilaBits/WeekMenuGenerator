@@ -13,6 +13,7 @@ import { Ingredient } from '../../Ingredient';
 export class SharedDataService implements AfterViewInit {
 
   initialmeal: Meal = {
+    id: -1,
     date: new Date(),
     participants: Array<User>(),
     recipe: new Recipe('Test', 'Yummy food', new Array<Ingredient>())

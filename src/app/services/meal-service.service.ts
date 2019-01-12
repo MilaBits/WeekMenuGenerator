@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, observable } from 'rxjs';
 import { Meal } from '../Meal';
 import { catchError, map, tap } from 'rxjs/operators';
+import { User } from '../User';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,16 @@ export class MealService {
       .pipe(
         map(result => (JSON.parse(result['message']) as Meal[])),
         catchError(this.handleError('getMeals', []))
+      );
+  }
+
+  updateUsers(meal: Meal): Observable<any | Meal> {
+
+    console.log(`updating users in ${meal.recipe.name} - ${meal.date}`);
+    const mealsUrl = `http://localhost:9050/meals/${meal.id}/updateUsers`;  // URL to web api
+    return this.http.put<Meal>(mealsUrl, meal)
+      .pipe(
+        catchError(this.handleError('updateUsers', []))
       );
   }
 
