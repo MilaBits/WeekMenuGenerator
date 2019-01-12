@@ -6,6 +6,7 @@
 html body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
+    background: #e1e2e1;
 }
 
 /* Quick Tools */
@@ -68,43 +69,3 @@ app-root {
 /* Rules for using icons as white on a dark background. */
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-
-
-.button {  
-    border:none;
-
-    text-align: center;
-
-    background-image: none;
-    background: white;
-}
-
-.button-wide {
-    width: calc(100% - 30px);
-    height: 30px;
-
-    padding: 0 15px;
-    margin: 0px 15px 15px 15px;
-
-    border-radius: 2px;
-    
-    font-size: 22;
-    font-weight: bold;
-    line-height: 30px;
-}
-
-.button:hover{
-    background: rgb(242.25, 242.25, 242.25);
-}
-
-.button:active { border-top-width: 0; }
-
-.primary {
-    background-color: #0077c2;
-    /* color: white; */
-}
-
-.secondary {
-    background-color: #80d6ff;
-    /* color: white; */
-}

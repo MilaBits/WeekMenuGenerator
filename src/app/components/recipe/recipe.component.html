@@ -39,56 +39,78 @@
 </jw-modal>
 
 <div class="container">
+  <h2 class="title">{{meal.date | date}}</h2>
 
-  <div class="flex-item sidebar">
-    <h2 class="title">{{meal.date | date}}</h2>
-    <h2 class="header">Participants</h2>
+  <mat-tab-group>
+    <mat-tab label="Participants">
+      <div class="flex-item sidebar">
+        <ul>
+          <li *ngFor="let person of meal.participants">
+            <mat-card class="card-margin">
+              <mat-card-title>{{person.name}}
+                <button mat-icon-button color="accent" class="button right" (click)="updateUsers(person)"><i class="material-icons md-18 right">delete</i></button>
+                <button mat-icon-button color="accent" class="button right" (click)="edit(person)"><i class="material-icons md-18 right">create</i></button>
+              </mat-card-title>
+              <mat-card-subtitle>Dietary exceptions</mat-card-subtitle>
+              <mat-card-content>
+                <mat-list class="limit-list">
+                  <mat-list-item *ngFor="let restriction of person.foodRestrictions" class="item_grid-container">
+                    <p>{{restriction.name}} </p>
+                    <mat-divider></mat-divider>
+                  </mat-list-item>
+                </mat-list>
+              </mat-card-content>
+            </mat-card>
+          </li>
+          <button mat-raised-button color="primary" class="fullwidth" (click)="addPersonModal(person)">Add Participant</button>
+        </ul>
+      </div>
+    </mat-tab>
 
-    <ul class="list">
-      <li class="list-box" *ngFor="let person of meal.participants">
-        <div class="person-top">
-          <span class="header-small">{{person.name}}</span>
-          <button class="button right" (click)="updateUsers(person)"><i class="material-icons md-18 right">delete</i></button>
-          <button class="button right" (click)="edit(person)"><i class="material-icons md-18 right">create</i></button>
-        </div>
-        <div class="person-bottom" *ngIf="person.foodRestrictions.length > 0">
-          <span class="header-small">Limits</span>
-          <ul class="limit-list">
-            <li *ngFor="let restriction of person.foodRestrictions" class="item_grid-container">
-              <span>{{restriction.name}} </span>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <button class="button button-wide" (click)="addPersonModal(person)">Add Participant</button>
-    </ul>
+    <mat-tab label="Ingredients">
+      <div class="flex-item sidebar">
+        <mat-card class="card-margin">
+          <mat-card-content>
+            <ul class="limit-list" *ngIf="meal.recipe.ingredients.length > 0">
+              <li class="item_grid-container" *ngFor="let ingredient of meal.recipe.ingredients" title="{{ingredient.amount}} {{ingredient.unit}} {{ingredient.name}}">
+                <table class="fullwidth">
+                  <tr>
+                    <td style="text-align: left">{{ingredient.name}}</td>
+                    <td style="text-align: right">{{ingredient.amount}} {{ingredient.unit}}</td>
+                  </tr>
+                </table>
+                <mat-divider></mat-divider>
+              </li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+        <button mat-raised-button color="primary" class="fullwidth">Add Ingredient</button>
+      </div>
+    </mat-tab>
 
-  </div>
+    <mat-tab label="Preparation">
+      <div class="sidebar">
+        <mat-card class="card-margin">
+          <mat-card-title>{{meal.recipe.name}}</mat-card-title>
+          <mat-card-content>{{meal.recipe.description}}</mat-card-content>
+        </mat-card>
 
-  <div class="flex-item sidebar">
-    <h2 class="title">{{meal.recipe.name}}</h2>
-    <h2 class="header">Ingredients</h2>
+        <table class="fullwidth">
+          <tr>
+            <td>
+              <button mat-raised-button color="primary" class="fullwidth button-double-left">Edit Recipe</button>
+            </td>
+            <td>
+              <button mat-raised-button color="primary" class="fullwidth button-double-right">New Recipe</button>
+            </td>
+          </tr>
+        </table>
+        <!-- <div class="button_grid-container">
+          <button mat-raised-button color="primary" class="fullwidth">Edit Recipe</button>
+          <button mat-raised-button color="primary" class="fullwidth">New Recipe</button>
+        </div> -->
+      </div>
+    </mat-tab>
 
-    <div class="list-box">
-      <ul class="limit-list" *ngIf="meal.recipe.ingredients.length > 0">
-        <li class="item_grid-container" *ngFor="let ingredient of meal.recipe.ingredients" title="{{ingredient.amount}} {{ingredient.unit}} {{ingredient.name}}">
-          <span>{{ingredient.name}} </span> <span> {{ingredient.amount}} {{ingredient.unit}}</span>
-        </li>
-      </ul>
-    </div>
-    <button class="button button-wide">Add Ingredient</button>
-
-  </div>
-
-  <div class="flex-item">
-    <h2 class="title">Preparation</h2>
-    <div class="preparation-box">
-      <h3>{{meal.recipe.name}}</h3>
-      <p>{{meal.recipe.description}}</p>
-    </div>
-    <div class="button_grid-container">
-      <button class="button button-wide">Edit Recipe</button>
-      <button class="button button-wide">New Recipe</button>
-    </div>
-  </div>
+  </mat-tab-group>
 </div>

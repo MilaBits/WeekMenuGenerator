@@ -10,7 +10,17 @@ import { ModalComponent } from './directives/modal.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatOptionModule, MatCardModule, MatButtonModule, MatInputModule, MatButtonToggleModule } from '@angular/material';
+import {
+  MatOptionModule,
+  MatCardModule,
+  MatButtonModule,
+  MatInputModule,
+  MatButtonToggleModule,
+  MatTableModule,
+  MatDividerModule,
+  MatListModule,
+  MatTabsModule
+} from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
@@ -32,7 +42,11 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTableModule,
+    MatDividerModule,
+    MatListModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
